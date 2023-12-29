@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable #←confirmableを追加
   acts_as_liker
 
+  # enum sex:{"男性": 0,"女性":1,"秘密":2}
+  enum sex:{man: 0,woman:1,secret:2}
+
   def update_password(params, *options)
     if params[:password].blank?
       params.delete(:password)
